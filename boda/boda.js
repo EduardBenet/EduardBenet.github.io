@@ -2,7 +2,7 @@ let LANGUAGE = 'CAT';
 
 const texts = {
     CAT: {
-        explanation: 'En temps de Covid tota distracció és benvinguda',
+        explanation: 'En temps de Covid tota distracció és benvinguda...',
         placeholder: "Mira't bé el puzzle"
     },
     ESP: {
@@ -27,13 +27,13 @@ function setLanguage(lang) {
 
 function handleSubmit() {
     const input = document.getElementById('puzzle-input');
-    const val   = input.value;
+    const val = input.value;
 
-    const robot   = /^[xX][xX][xX][iI][vV][iI][iI][xX][xX][iI]$/;
+    const robot = /^[xX][xX][xX][iI][vV][iI][iI][xX][xX][iI]$/;
     const testigo = /^[Gg]ertrudis$/;
-    const parra   = /^[Pp][aA][rR][rR][iI][sS][Qq][uU][iI][sS]$/;
-    const marina  = /^[Mm][aA][rR][iI][nN][iI]$/;
-    const china   = /^[Cc][hH][iI][nN][aA]\s?[wW][hH][iI][tT][eE]$/;
+    const parra = /^[Pp][aA][rR][rR][iI][sS][Qq][uU][iI][sS]$/;
+    const marina = /^[Mm][aA][rR][iI][nN][iI]$/;
+    const china = /^[Cc][hH][iI][nN][aA]\s?[wW][hH][iI][tT][eE]$/;
     const silbato = /^[Ss][iI][lL][bB][aA][tT][oO]$/;
 
     if (robot.test(val)) {

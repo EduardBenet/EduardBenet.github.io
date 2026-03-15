@@ -5,21 +5,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Eduard & Teresa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
-        html, body {
+        html,
+        body {
             height: 100%;
             overflow: hidden;
             background: white;
+            font-family: 'Mulish', sans-serif;
         }
 
         body {
-            padding: 2.5vh 5vw;
+            padding: 5vh 5vw;
             display: flex;
             align-items: stretch;
         }
@@ -34,7 +39,7 @@
 
         /* ── LEFT PANEL ── */
         .left-panel {
-            background: #faf7f2;
+            background: #e8e8e8;
             color: #2c2c2c;
             position: relative;
             display: flex;
@@ -50,7 +55,7 @@
             right: 0;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            width: 108px;
+            width: 180px;
         }
 
         .lang-btn {
@@ -59,8 +64,8 @@
             border: none;
             border-bottom: 2px solid transparent;
             cursor: pointer;
-            font-size: 0.7rem;
-            font-family: inherit;
+            font-size: 1.125rem;
+            font-family: 'Mulish', sans-serif;
             color: inherit;
             letter-spacing: 0.05em;
             transition: border-color 0.15s;
@@ -84,15 +89,19 @@
 
         .title {
             text-align: center;
-            font-size: clamp(1.4rem, 2.5vw, 2rem);
+            font-size: 2.875rem;
             font-family: Georgia, serif;
             line-height: 1.4;
             letter-spacing: 0.05em;
         }
 
+        .title .ampersand {
+            font-size: 1.5rem;
+        }
+
         .explanation {
             text-align: center;
-            font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+            font-size: clamp(1.375rem, 1.2vw, 0.9rem);
             line-height: 1.5;
             max-width: 85%;
             font-style: italic;
@@ -113,7 +122,6 @@
             border-color: #888;
         }
 
-        /* Submit button — pinned to bottom */
         .submit-btn {
             background: black;
             color: white;
@@ -123,7 +131,6 @@
             font-family: inherit;
             font-size: 0.85rem;
             letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
         }
 
         .submit-btn:hover {
@@ -158,10 +165,6 @@
             .main-content {
                 gap: 0.75rem;
             }
-
-            .submit-btn {
-                margin-bottom: 0;
-            }
         }
     </style>
 </head>
@@ -175,19 +178,17 @@
             <!-- Language buttons -->
             <div class="lang-buttons">
                 <button class="lang-btn active" id="btn-CAT" onclick="setLanguage('CAT')">CAT</button>
-                <button class="lang-btn"        id="btn-ESP" onclick="setLanguage('ESP')">ESP</button>
-                <button class="lang-btn"        id="btn-ENG" onclick="setLanguage('ENG')">ENG</button>
+                <button class="lang-btn" id="btn-ESP" onclick="setLanguage('ESP')">ESP</button>
+                <button class="lang-btn" id="btn-ENG" onclick="setLanguage('ENG')">ENG</button>
             </div>
 
             <!-- Centered content -->
             <div class="main-content">
-                <div class="title">EDUARD<br>&amp;<br>TERESA</div>
+                <div class="title">EDUARD<br><span class="ampersand">&amp;</span><br>TERESA</div>
                 <p class="explanation" id="explanation">En temps de Covid tota distracció és benvinguda</p>
                 <input type="text" class="puzzle-input" id="puzzle-input" placeholder="Mira't bé el puzzle">
+                <button class="submit-btn" onclick="handleSubmit()">Envia</button>
             </div>
-
-            <!-- Submit button at bottom -->
-            <button class="submit-btn" onclick="handleSubmit()">Envia</button>
         </div>
 
         <!-- RIGHT PANEL -->
