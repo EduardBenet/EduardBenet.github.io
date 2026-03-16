@@ -7,13 +7,226 @@
     <title>Eduard & Teresa — Confirma l'assistència</title>
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600&family=Caveat:wght@500&display=swap"
         rel="stylesheet">
-    <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Mulish', sans-serif; background: white; color: #2c2c2c; }
-    </style>
+    <link rel="stylesheet" href="confirm.css">
 </head>
 
 <body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a class="back-btn" id="back-btn" href="boda.html" aria-label="Tornar">&#8592;</a>
+        </div>
+        <span class="navbar-title">Eduard &amp; Teresa</span>
+        <div class="navbar-right">
+            <button class="nav-lang-btn active" id="lang-CAT" onclick="setLanguage('CAT')">CAT</button>
+            <button class="nav-lang-btn" id="lang-ESP" onclick="setLanguage('ESP')">ESP</button>
+            <button class="nav-lang-btn" id="lang-ENG" onclick="setLanguage('ENG')">ENG</button>
+        </div>
+    </nav>
+
+    <!-- FORM PAGE -->
+    <div class="form-page">
+        <div class="form-card">
+
+            <!-- Success state (shown after submit) -->
+            <div class="success-msg" id="success-msg">
+                <div class="checkmark">&#10003;</div>
+                <h2 id="success-title"></h2>
+                <p id="success-text"></p>
+            </div>
+
+            <!-- Form -->
+            <!-- To connect to a backend, set the action attribute and remove the onsubmit handler -->
+            <form id="rsvp-form" onsubmit="handleSubmit(event)" novalidate>
+
+                <h1 class="form-title" id="form-title"></h1>
+
+                <div style="display:flex; flex-direction:column; gap:1.25rem; margin-top:0.5rem;">
+
+                    <div class="field">
+                        <label for="nom" id="label-nom"></label>
+                        <input type="text" id="nom" name="nom" required maxlength="100" autocomplete="name">
+                    </div>
+
+                    <div class="field">
+                        <label for="email" id="label-email"></label>
+                        <input type="email" id="email" name="email" required maxlength="250" autocomplete="email">
+                    </div>
+
+                    <div class="field">
+                        <label for="dietary" id="label-dietary"></label>
+                        <textarea id="dietary" name="dietary" rows="2"></textarea>
+                    </div>
+
+                    <hr class="divider">
+
+                    <label class="check-field">
+                        <input type="checkbox" id="attending" name="attending" checked>
+                        <span id="label-attending"></span>
+                    </label>
+
+                    <!-- Fields shown only when attending -->
+                    <div class="conditional" id="attending-fields">
+
+                        <div class="fields-row">
+                            <div class="field">
+                                <label for="adults" id="label-adults"></label>
+                                <input type="number" id="adults" name="adults" min="0" max="5" value="0">
+                            </div>
+                            <div class="field">
+                                <label for="minors" id="label-minors"></label>
+                                <input type="number" id="minors" name="minors" min="0" max="5" value="0">
+                            </div>
+                        </div>
+
+                        <hr class="divider">
+
+                        <label class="check-field">
+                            <input type="checkbox" id="needs-bus" name="needs-bus">
+                            <span id="label-needs-bus"></span>
+                        </label>
+
+                        <!-- Bus return time — shown only when bus is needed -->
+                        <fieldset class="radio-group hidden" id="bus-group">
+                            <legend id="label-bus-legend"></legend>
+                            <label class="radio-option">
+                                <input type="radio" name="bus" value="21:30">
+                                <span id="label-bus-early"></span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="bus" value="23:30" checked>
+                                <span id="label-bus-late"></span>
+                            </label>
+                        </fieldset>
+
+                    </div>
+
+                    <hr class="divider">
+
+                    <button type="submit" class="submit-btn" id="submit-btn"></button>
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <script>
+        const strings = {
+            CAT: {
+                title: "Confirma la teva assistència",
+                nom: "Nom",
+                email: "Email",
+                dietary: "Requeriments alimentaris",
+                attending: "Assistiré a la boda",
+                adults: "Acompanyants Adults",
+                minors: "Acompanyants Menors",
+                needsBus: "Necessito servei de bus",
+                busLegend: "Selecciona el bus de tornada",
+                busEarly: "Tornaré amb el bus de les 21:30",
+                busLate: "Tornaré amb el bus de les 23:30",
+                submit: "Envia",
+                successTitle: "Gràcies!",
+                successText: "Hem rebut la teva confirmació. Ens veiem aviat!"
+            },
+            ESP: {
+                title: "Confirma tu asistencia",
+                nom: "Nombre",
+                email: "Email",
+                dietary: "Requisitos alimentarios",
+                attending: "Asistiré a la boda",
+                adults: "Acompañantes Adultos",
+                minors: "Acompañantes Menores",
+                needsBus: "Necesito servicio de autobús",
+                busLegend: "Selecciona el autobús de vuelta",
+                busEarly: "Volveré con el autobús de las 21:30",
+                busLate: "Volveré con el autobús de las 23:30",
+                submit: "Enviar",
+                successTitle: "¡Gracias!",
+                successText: "Hemos recibido tu confirmación. ¡Nos vemos pronto!"
+            },
+            ENG: {
+                title: "Confirm your attendance",
+                nom: "Name",
+                email: "Email",
+                dietary: "Dietary requirements",
+                attending: "I will attend the wedding",
+                adults: "Adult companions",
+                minors: "Minor companions",
+                needsBus: "I need the bus service",
+                busLegend: "Select your return bus",
+                busEarly: "I'll take the 21:30 bus back",
+                busLate: "I'll take the 23:30 bus back",
+                submit: "Submit",
+                successTitle: "Thank you!",
+                successText: "We have received your confirmation. See you soon!"
+            }
+        };
+
+        let LANGUAGE = 'CAT';
+
+        function setLanguage(lang) {
+            LANGUAGE = lang;
+            ['CAT', 'ESP', 'ENG'].forEach(l => {
+                document.getElementById('lang-' + l).classList.toggle('active', l === lang);
+            });
+            document.getElementById('back-btn').href = 'boda.html?lang=' + lang;
+            render();
+        }
+
+        function render() {
+            const s = strings[LANGUAGE];
+            document.getElementById('form-title').textContent = s.title;
+            document.getElementById('label-nom').textContent = s.nom;
+            document.getElementById('label-email').textContent = s.email;
+            document.getElementById('label-dietary').textContent = s.dietary;
+            document.getElementById('label-attending').textContent = s.attending;
+            document.getElementById('label-adults').textContent = s.adults;
+            document.getElementById('label-minors').textContent = s.minors;
+            document.getElementById('label-needs-bus').textContent = s.needsBus;
+            document.getElementById('label-bus-legend').textContent = s.busLegend;
+            document.getElementById('label-bus-early').textContent = s.busEarly;
+            document.getElementById('label-bus-late').textContent = s.busLate;
+            document.getElementById('submit-btn').textContent = s.submit;
+            document.getElementById('success-title').textContent = s.successTitle;
+            document.getElementById('success-text').textContent = s.successText;
+            document.getElementById('nom').placeholder = s.nom;
+            document.getElementById('email').placeholder = s.email;
+            document.getElementById('dietary').placeholder = s.dietary;
+        }
+
+        document.getElementById('attending').addEventListener('change', function () {
+            document.getElementById('attending-fields').classList.toggle('hidden', !this.checked);
+        });
+
+        document.getElementById('needs-bus').addEventListener('change', function () {
+            document.getElementById('bus-group').classList.toggle('hidden', !this.checked);
+        });
+
+        function handleSubmit(e) {
+            e.preventDefault();
+            // To submit to a backend, remove e.preventDefault() and set action="" on the form.
+            // Example services: Formspree (https://formspree.io), Netlify Forms, etc.
+            document.getElementById('rsvp-form').style.display = 'none';
+            const msg = document.getElementById('success-msg');
+            msg.style.display = 'flex';
+        }
+
+        // Pick language from query param (passed from boda.html)
+        const params = new URLSearchParams(window.location.search);
+        const paramLang = params.get('lang');
+        if (paramLang && strings[paramLang]) {
+            LANGUAGE = paramLang;
+            document.getElementById('lang-' + LANGUAGE).classList.add('active');
+            ['CAT', 'ESP', 'ENG'].filter(l => l !== LANGUAGE).forEach(l => {
+                document.getElementById('lang-' + l).classList.remove('active');
+            });
+        }
+        document.getElementById('back-btn').href = 'boda.html?lang=' + LANGUAGE;
+        render();
+    </script>
+
 </body>
 
 </html>

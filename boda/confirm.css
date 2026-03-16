@@ -1,0 +1,293 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Mulish', sans-serif;
+    background: #f0f0f0;
+    color: #2c2c2c;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── NAVBAR ── */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: #e8e8e8;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    z-index: 100;
+    flex-shrink: 0;
+}
+
+.navbar-left,
+.navbar-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-right {
+    justify-content: flex-end;
+    gap: 0.25rem;
+}
+
+.navbar-title {
+    flex: 0 0 auto;
+    font-family: 'Caveat', cursive;
+    font-size: 1.6rem;
+    letter-spacing: 0.02em;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.3rem;
+    padding: 0.25rem 0.5rem;
+    color: #2c2c2c;
+    line-height: 1;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.back-btn:hover {
+    color: #000;
+}
+
+.nav-lang-btn {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    font-size: 0.7rem;
+    font-family: 'Mulish', sans-serif;
+    color: #2c2c2c;
+    letter-spacing: 0.05em;
+    padding: 0.1rem 0.3rem;
+    transition: border-color 0.15s;
+}
+
+.nav-lang-btn:hover,
+.nav-lang-btn.active {
+    border-bottom-color: #2c2c2c;
+}
+
+/* ── FORM WRAPPER ── */
+.form-page {
+    margin-top: 56px;
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 3rem 1rem 3rem;
+}
+
+.form-card {
+    background: white;
+    width: 100%;
+    max-width: 480px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+/* ── FORM TITLE ── */
+.form-title {
+    font-family: 'Mulish', cursive;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 0.25rem;
+}
+
+/* ── INPUTS ── */
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.field label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #555;
+}
+
+.field input,
+.field textarea {
+    width: 100%;
+    padding: 0.55rem 0.75rem;
+    border: 1px solid #bbb;
+    background: white;
+    font-family: 'Mulish', sans-serif;
+    font-size: 0.9rem;
+    color: #2c2c2c;
+    outline: none;
+    transition: border-color 0.2s;
+    resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus {
+    border-color: #888;
+}
+
+.field textarea {
+    min-height: 72px;
+}
+
+/* ── NUMBER FIELDS ROW ── */
+.fields-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* ── CHECKBOX ── */
+.check-field {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.check-field input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #2c2c2c;
+    flex-shrink: 0;
+}
+
+.check-field span {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* ── RADIO GROUP ── */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.radio-group legend {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 0.4rem;
+    display: block;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.radio-option input[type="radio"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: #2c2c2c;
+    flex-shrink: 0;
+}
+
+.radio-option span {
+    font-size: 0.9rem;
+}
+
+/* ── DIVIDER ── */
+.divider {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* ── SUBMIT BUTTON ── */
+.submit-btn {
+    background: #2c2c2c;
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    cursor: pointer;
+    font-family: 'Mulish', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    width: 100%;
+    transition: background 0.15s;
+}
+
+.submit-btn:hover {
+    background: #000;
+}
+
+/* ── SUCCESS STATE ── */
+.success-msg {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.success-msg .checkmark {
+    font-size: 3rem;
+}
+
+.success-msg h2 {
+    font-family: 'Caveat', cursive;
+    font-size: 1.8rem;
+}
+
+.success-msg p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ── CONDITIONAL FIELDS ── */
+.conditional {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.conditional.hidden,
+.hidden {
+    display: none;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 520px) {
+    .form-card {
+        padding: 2rem 1.25rem;
+    }
+
+    .fields-row {
+        grid-template-columns: 1fr;
+    }
+}

@@ -176,9 +176,15 @@ function renderSections() {
         if (link) link.textContent = nav[i] || sec.title;
     });
     const confirmLink = document.getElementById('drawer-6');
-    if (confirmLink) confirmLink.textContent = nav[6];
+    if (confirmLink) {
+        confirmLink.textContent = nav[6];
+        confirmLink.href = 'confirm.html?lang=' + LANGUAGE;
+    }
     const covidLink = document.getElementById('drawer-7');
-    if (covidLink) covidLink.textContent = nav[7];
+    if (covidLink) {
+        covidLink.textContent = nav[7];
+        covidLink.href = 'covid19.html?lang=' + LANGUAGE;
+    }
 }
 
 function toggleMenu() {
