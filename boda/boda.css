@@ -1,0 +1,454 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Mulish', sans-serif;
+    background: white;
+    color: #2c2c2c;
+}
+
+/* ── NAVBAR ── */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: #e8e8e8;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    z-index: 100;
+}
+
+.navbar-left,
+.navbar-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-right {
+    justify-content: flex-end;
+    gap: 0.25rem;
+}
+
+.navbar-title {
+    flex: 0 0 auto;
+    font-family: 'Caveat', cursive;
+    font-size: 1.6rem;
+    letter-spacing: 0.02em;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Burger button */
+.burger-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.4rem;
+    padding: 0.25rem 0.5rem;
+    color: #2c2c2c;
+    line-height: 1;
+}
+
+/* Language buttons in navbar */
+.nav-lang-btn {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    font-size: 0.7rem;
+    font-family: 'Mulish', sans-serif;
+    color: #2c2c2c;
+    letter-spacing: 0.05em;
+    padding: 0.1rem 0.3rem;
+    transition: border-color 0.15s;
+}
+
+.nav-lang-btn:hover,
+.nav-lang-btn.active {
+    border-bottom-color: #2c2c2c;
+}
+
+/* ── MAP OVERLAY ── */
+.map-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 300;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-overlay.open {
+    display: flex;
+}
+
+.map-overlay-inner {
+    position: relative;
+    width: 90vw;
+    max-width: 800px;
+    aspect-ratio: 16 / 9;
+    background: #000;
+}
+
+.map-overlay-inner iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.map-overlay-close {
+    position: absolute;
+    top: -2rem;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+#map-img {
+    cursor: pointer;
+}
+
+.section-how {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.img-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 300;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-overlay.open {
+    display: flex;
+}
+
+.img-overlay-inner {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+.img-overlay-inner img {
+    display: block;
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+.img-overlay-close {
+    position: absolute;
+    top: -2rem;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* ── NAV DRAWER ── */
+.nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 200;
+}
+
+.nav-overlay.open {
+    display: block;
+}
+
+.nav-drawer {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 240px;
+    height: 100%;
+    background: #e8e8e8;
+    z-index: 300;
+    transition: left 0.25s ease;
+    padding: 1.5rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.nav-drawer.open {
+    left: 0;
+}
+
+.nav-drawer a {
+    display: block;
+    padding: 0.6rem 0;
+    text-decoration: none;
+    color: #2c2c2c;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-drawer a:hover {
+    color: #000;
+}
+
+.drawer-close {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+}
+
+/* ── SCROLL SNAP ── */
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
+/* ── MAIN CONTENT ── */
+main {
+    padding-top: 0;
+}
+
+/* ── SECTIONS 1–4: two-column grid ── */
+.section-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    scroll-snap-align: start;
+    scroll-margin-top: 56px;
+    overflow: hidden;
+}
+
+.section-2col .section-img {
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    object-fit: cover;
+    display: block;
+}
+
+.section-2col .section-body {
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* odd sections: image left; even sections: image right */
+.section-2col.img-right .section-img {
+    order: 2;
+}
+
+.section-2col.img-right .section-body {
+    order: 1;
+}
+
+/* ── SECTIONS 5–6: full width ── */
+.section-full {
+    padding: 3.5rem 8vw;
+    height: 100vh;
+    scroll-snap-align: start;
+    scroll-margin-top: 56px;
+    overflow: hidden;
+}
+
+/* ── SHARED SECTION STYLES ── */
+.section-header {
+    font-family: 'Poppins SemiBold', sans-serif;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.section-title {
+    font-family: 'Poppins SemiBold', sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.section-title2 {
+    font-family: 'Poppins SemiBold', sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.section-text,
+.section-text2 {
+    font-family: 'Avenir Light', sans-serif;
+    font-size: 1rem;
+    line-height: 1.8em;
+    max-width: 55ch;
+    text-align: justify;
+    max-width: 100%;
+}
+
+.section-map {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 55ch;
+    color: black;
+}
+
+.section-confirm {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 55ch;
+}
+
+/* Section 0: offset content below fixed navbar */
+#section-0 {
+    padding-top: 56px;
+}
+
+/* Section 2: 2×2 grid */
+#section-2 {
+    grid-template-rows: 1fr 1fr;
+}
+
+/* alternating background */
+.section-2col:nth-child(even),
+.section-full:nth-child(even) {
+    background: #f5f5f5;
+}
+
+.section-spotify {
+    min-height: 280px;
+}
+
+.section-inner {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* ── HOTEL BOXES ── */
+.hotel-boxes {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    width: 100%;
+}
+
+.hotel-box {
+    border: 2px solid black;
+    box-shadow: -5px 5px 0 0 #bbb;
+    padding: 1.75rem 1.5rem;
+    text-align: center;
+    flex: 0 0 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.hotel-box h3 {
+    font-family: 'Mulish', sans-serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.hotel-box p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.hotel-box a {
+    display: inline-block;
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+    color: #2c2c2c;
+    text-decoration: underline;
+}
+
+/* ── SECTION 6 QUOTE ── */
+#section-5 .section-header {
+    font-size: 2rem;
+}
+
+.quote-wrap {
+    position: relative;
+    padding: 0 4rem;
+    width: 80%;
+}
+
+.quote-wrap::before,
+.quote-wrap::after {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 8rem;
+    line-height: 1;
+    color: #000000;
+    position: absolute;
+}
+
+.quote-wrap::before {
+    content: '\201C';
+    left: 0;
+    top: -1rem;
+}
+
+.quote-wrap::after {
+    content: '\201D';
+    right: 0;
+    bottom: -6rem;
+}
+
+.penguin-circle {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.penguin-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 700px) {
+    .section-2col {
+        grid-template-columns: 1fr;
+    }
+
+    .section-2col .section-img {
+        min-height: 220px;
+    }
+
+    .section-2col.img-right .section-img {
+        order: 0;
+    }
+
+    .section-2col.img-right .section-body {
+        order: 0;
+    }
+}

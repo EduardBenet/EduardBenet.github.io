@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ca">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Eduard & Teresa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600&family=Caveat:wght@500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="boda.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <button class="burger-btn" onclick="toggleMenu()" aria-label="Menu">&#9776;</button>
+        </div>
+        <span class="navbar-title">Eduard &amp; Teresa</span>
+        <div class="navbar-right">
+            <button class="nav-lang-btn active" id="lang-CAT" onclick="setLanguage('CAT')">CAT</button>
+            <button class="nav-lang-btn" id="lang-ESP" onclick="setLanguage('ESP')">ESP</button>
+            <button class="nav-lang-btn" id="lang-ENG" onclick="setLanguage('ENG')">ENG</button>
+        </div>
+    </nav>
+
+    <!-- NAV DRAWER (links updated by JS via renderDrawer) -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+    <div class="nav-drawer" id="nav-drawer">
+        <button class="drawer-close" onclick="toggleMenu()" aria-label="Tancar">&#10005;</button>
+        <a href="#section-0" id="drawer-0" onclick="toggleMenu()"></a>
+        <a href="#section-1" id="drawer-1" onclick="toggleMenu()"></a>
+        <a href="#section-2" id="drawer-2" onclick="toggleMenu()"></a>
+        <a href="#section-3" id="drawer-3" onclick="toggleMenu()"></a>
+        <a href="#section-4" id="drawer-4" onclick="toggleMenu()"></a>
+        <a href="#section-5" id="drawer-5" onclick="toggleMenu()"></a>
+        <a href="confirm.html" id="drawer-6"></a>
+        <a href="covid19.html" id="drawer-7"></a>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- Section 1 — couple -->
+        <section class="section-2col" id="section-0">
+            <div class="section-body">
+                <div class="section-inner" style="width:60%;">
+                    <h2 class="section-header"></h2>
+                    <h2 class="section-title"></h2>
+                    <p class="section-text"></p>
+                </div>
+            </div>
+            <img class="section-img" src="assets/EduiTer.jpg" alt="">
+        </section>
+
+        <!-- Section 2 — cathedral -->
+        <section class="section-2col" id="section-1">
+            <img class="section-img" src="assets/catedral.jpg" alt="">
+            <div class="section-body">
+                <div class="section-inner">
+                    <h2 class="section-title"></h2>
+                    <p class="section-text"><strong class="section-whenword"></strong> <span
+                            class="section-when"></span>
+                    </p>
+                    <p class="section-text"><strong class="section-whereword"></strong> <span
+                            class="section-where"></span>
+                    </p>
+                    <p class="section-text section-how"></p>
+                    <p class="section-text section-notes"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3 — image left, text right -->
+        <section class="section-2col" id="section-2">
+            <div class="section-body">
+                <div class="section-inner" style="width: 55%">
+                    <h2 class="section-title"></h2>
+                    <p class="section-text" style="text-align: center;"><strong class="section-whereword"></strong>
+                        <span class="section-where"></span>
+                    </p>
+                    <p class="section-notes" style="text-align: center"></p>
+                    <p class="section-confirm" style="text-align: center"></p>
+                </div>
+            </div>
+            <img class="section-img" src="assets/mgroc.jpg" alt="">
+            <img class="section-img" id="map-img" src="assets/Mapa.PNG" alt="">
+            <div class="section-body">
+                <div class="section-inner" style="width: 90%;">
+                    <h2 class="section-title2"></h2>
+                    <p class="section-text2"></p>
+                    <a class="section-map" href="assets/mapa.pdf" download></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4 — text left, image right -->
+        <section class="section-2col" id="section-3">
+            <div class="section-body">
+                <div class="section-inner">
+                    <h2 class="section-title"></h2>
+                    <p class="section-text"></p>
+                </div>
+                <img src="assets/spotify.jpeg" alt="" style="width:60%;height:auto;margin-top:1rem;">
+            </div>
+            </div>
+            <div class="section-spotify">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2i72xQAtegOU8o6deTuLjx"
+                    width="100%" height="100%" frameborder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"></iframe>
+            </div>
+        </section>
+
+        <!-- Section 5 — full width -->
+        <section class="section-full" id="section-4"
+            style="display:flex; flex-direction:column; align-items:stretch; gap:0.75rem;">
+            <h2 class="section-title"></h2>
+            <p class="section-text" style="text-align:center; width:50%; margin:0 auto;"></p>
+            <div class="hotel-boxes" style="margin-top:5%;">
+                <div class="hotel-box">
+                    <h3>AC Hotel Tarragona</h3>
+                    <p>Hotel a prop de la plaça imperial Tarraco</p>
+                    <p>Preu aproximat 77 € per habitació doble</p>
+                    <a href="https://www.booking.com/hotel/es/ac-tarragona.en-gb.html?chal_t=1773618196663&force_referer=https%3A%2F%2Fwww.benetmilian.com%2F"
+                        target="_blank" rel="noopener">link</a>
+                </div>
+                <div class="hotel-box">
+                    <h3>Hotel Plaça de la Font</h3>
+                    <p>Hotel a la Part Alta de Tarragona</p>
+                    <p>Preu aproximat 69 € per habitació doble</p>
+                    <a href="https://www.booking.com/hotel/es/placa-de-la-font.en-gb.html" target="_blank"
+                        rel="noopener">link</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6 — full width -->
+        <section class="section-full" id="section-5"
+            style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2rem;">
+            <div class="quote-wrap">
+                <h2 class="section-header"></h2>
+            </div>
+            <p class="section-title"></p>
+            <div class="penguin-circle">
+                <img src="assets/pinguinos.jpg" alt="Argentina">
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Map overlay -->
+    <div class="map-overlay" id="map-overlay">
+        <div class="map-overlay-inner">
+            <button class="map-overlay-close" id="map-overlay-close">&times;</button>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7143.531417256383!2d1.0457597011388244!3d41.16758541257832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a14fdeefc0f879%3A0xd5bb30fe3e906f57!2sEl%20Mas%20Groc%20-%20Mas%C3%ADa%20rural%20para%20Bodas%20y%20Celebraciones%20-%20Comuniones%2C%20Eventos%20de%20empresa!5e0!3m2!1sen!2suk!4v1612128325998!5m2!1sen!2suk"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Part Alta image overlay -->
+    <div class="img-overlay" id="img-overlay">
+        <div class="img-overlay-inner">
+            <button class="img-overlay-close" id="img-overlay-close">&times;</button>
+            <img id="img-overlay-img" src="" alt="Mapa Part Alta">
+        </div>
+    </div>
+
+    <script src="boda-page.js"></script>
+</body>
+
+</html>

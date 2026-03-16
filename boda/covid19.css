@@ -1,0 +1,129 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Mulish', sans-serif;
+    min-height: 100vh;
+    background: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg {
+    position: fixed;
+    inset: 0;
+    background-image: url('assets/virus.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.35);
+    z-index: 0;
+}
+
+/* ── CLOSE BUTTON ── */
+.close-btn {
+    position: fixed;
+    top: 1rem;
+    right: 1.25rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 10;
+    opacity: 0.85;
+    transition: opacity 0.15s;
+}
+
+.close-btn:hover {
+    opacity: 1;
+}
+
+/* ── LANGUAGE BUTTONS ── */
+.lang-btns {
+    position: fixed;
+    top: 1.1rem;
+    right: 3.5rem;
+    display: flex;
+    gap: 0.25rem;
+    z-index: 10;
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    font-size: 0.7rem;
+    font-family: 'Mulish', sans-serif;
+    color: #fff;
+    letter-spacing: 0.05em;
+    padding: 0.1rem 0.3rem;
+    transition: border-color 0.15s;
+}
+
+.lang-btn:hover,
+.lang-btn.active {
+    border-bottom-color: #fff;
+}
+
+/* ── CONTENT ── */
+.content {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+    width: 90%;
+    padding: 3rem 0 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+}
+
+.content h1 {
+    font-family: 'Caveat', cursive;
+    font-size: 3rem;
+    text-align: center;
+    line-height: 1;
+}
+
+.content .subtitle {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    text-align: center;
+    opacity: 0.9;
+}
+
+.content ol {
+    padding-left: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.content ol li {
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.content ol li strong {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.content .finale {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    opacity: 0.95;
+    margin-top: 0.5rem;
+}

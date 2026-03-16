@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ca">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Eduard & Teresa — COVID-19</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600&family=Caveat:wght@500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="covid19.css">
+</head>
+
+<body>
+    <div class="bg"></div>
+
+    <div class="lang-btns">
+        <button class="lang-btn" id="lang-CAT" onclick="setLang('CAT')">CAT</button>
+        <button class="lang-btn" id="lang-ESP" onclick="setLang('ESP')">ESP</button>
+        <button class="lang-btn active" id="lang-ENG" onclick="setLang('ENG')">ENG</button>
+    </div>
+
+    <button class="close-btn" onclick="history.back()" aria-label="Go back">&times;</button>
+
+    <div class="content" id="covid-content"></div>
+
+    <script src="covid19-data.js"></script>
+    <script>
+        let lang = 'ENG';
+
+        function setLang(l) {
+            lang = l;
+            ['CAT', 'ESP', 'ENG'].forEach(x => {
+                document.getElementById('lang-' + x).classList.toggle('active', x === l);
+            });
+            render();
+        }
+
+        function render() {
+            const d = covidData[lang];
+            const items = d.items.map(item => {
+                const lines = item.text.split('\n').map(line => `<p>${line}</p>`).join('');
+                return `<li>${item.label ? `<strong>${item.label}</strong>` : ''}${lines}</li>`;
+            }).join('');
+            document.getElementById('covid-content').innerHTML = `
+                <h1>${d.title}</h1>
+                <p class="subtitle">${d.subtitle}</p>
+                <ol>${items}</ol>
+                <p class="finale">${d.finale}</p>
+            `;
+        }
+
+        // pick language from query param if coming from boda.html
+        const params = new URLSearchParams(window.location.search);
+        const paramLang = params.get('lang');
+        if (paramLang && covidData[paramLang]) {
+            lang = paramLang;
+            document.getElementById('lang-' + lang).classList.add('active');
+            ['CAT', 'ESP', 'ENG'].filter(l => l !== lang).forEach(l => {
+                document.getElementById('lang-' + l).classList.remove('active');
+            });
+        }
+        render();
+    </script>
+</body>
+
+</html>

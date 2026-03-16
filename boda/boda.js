@@ -38,8 +38,8 @@ function handleSubmit() {
 
     if (robot.test(val)) {
         input.style.borderColor = 'rgba(0,255,0,1)';
-        const dest = { CAT: '/enllas', ESP: '/boda', ENG: '/wedding' };
-        window.location.href = dest[LANGUAGE] || '/enllas';
+        const dest = { CAT: 'boda.html?lang=CAT', ESP: 'boda.html?lang=ESP', ENG: 'boda.html?lang=ENG' };
+        window.location.href = dest[LANGUAGE] || 'boda.html?lang=CAT';
 
     } else if (testigo.test(val)) {
         showLightbox('Testimonis');
