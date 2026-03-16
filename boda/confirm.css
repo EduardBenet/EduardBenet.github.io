@@ -186,9 +186,13 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
+    border: 0;
+    padding: 0;
+    min-width: 0;
+    appearance: none;
 }
 
-.radio-group legend {
+.radio-legend {
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.04em;

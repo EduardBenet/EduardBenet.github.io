@@ -88,8 +88,8 @@
                         </label>
 
                         <!-- Bus return time — shown only when bus is needed -->
-                        <fieldset class="radio-group hidden" id="bus-group">
-                            <legend id="label-bus-legend"></legend>
+                        <div class="radio-group hidden" id="bus-group" role="radiogroup">
+                            <span class="radio-legend" id="label-bus-legend"></span>
                             <label class="radio-option">
                                 <input type="radio" name="bus" value="21:30">
                                 <span id="label-bus-early"></span>
@@ -98,7 +98,7 @@
                                 <input type="radio" name="bus" value="23:30" checked>
                                 <span id="label-bus-late"></span>
                             </label>
-                        </fieldset>
+                        </div>
 
                     </div>
 
