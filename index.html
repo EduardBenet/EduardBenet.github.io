@@ -28,9 +28,15 @@
 				<ul>
 					<li><a href="#eduard">Eduard</a></li>
 					<li><a href="#teresa">Teresa</a></li>
-					<li><a href="#projectes">Projectes</a></li>
-					<li><a href="boda/index.html">Boda</a></li>
-					<li><a href="#quim">Quim</a></li>
+					<li class="has-dropdown">
+						<a href="#familia">Família</a>
+						<ul class="dropdown">
+							<li><a href="boda/index.html">Boda</a></li>
+							<li><a href="#quim">Quim</a></li>
+							<li><a href="#joan">Joan</a></li>
+						</ul>
+					</li>
+					<li><a href="projectes.html">Projectes</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -70,7 +76,12 @@
 				<h3>
 					<a href='https://proud-desert-0dda2e903.4.azurestaticapps.net/login/'">La petita web del Quim</a>
 					<p>Area Privada</p>
-				</h3>				
+				</h3>
+			</article>
+
+			<article id="joan">
+				<h2 class="major">Joan Benet Milián</h2>
+				<p>Properament</p>
 			</article>
 
 			<!-- Elements --><!-- 
@@ -346,6 +357,52 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script>
+		(function () {
+			var dropdowns = document.querySelectorAll('#header nav li.has-dropdown');
+
+			dropdowns.forEach(function (li) {
+				var toggle = li.querySelector(':scope > a');
+
+				toggle.addEventListener('click', function (event) {
+					if (!li.classList.contains('open')) {
+						event.preventDefault();
+
+						dropdowns.forEach(function (other) {
+							if (other !== li)
+								other.classList.remove('open');
+						});
+
+						li.classList.add('open');
+					}
+				});
+			});
+
+			document.addEventListener('click', function (event) {
+				dropdowns.forEach(function (li) {
+					if (!li.contains(event.target))
+						li.classList.remove('open');
+				});
+			});
+
+			// main.js centers the divider using *all* descendant <li>s, which
+			// miscounts once the dropdown adds nested <li>s. Recompute using
+			// only the top-level nav items so the line stays centered on them.
+			var nav = document.querySelector('#header nav'),
+				topLevelItems = nav.querySelectorAll(':scope > ul > li');
+
+			nav.querySelectorAll('li.is-middle').forEach(function (li) {
+				li.classList.remove('is-middle');
+			});
+
+			if (topLevelItems.length % 2 === 0) {
+				nav.classList.add('use-middle');
+				topLevelItems[topLevelItems.length / 2].classList.add('is-middle');
+			} else {
+				nav.classList.remove('use-middle');
+			}
+		})();
+	</script>
 
 </body>
 
