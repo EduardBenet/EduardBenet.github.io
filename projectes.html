@@ -40,16 +40,11 @@
 			padding-top: 4rem;
 		}
 
-		.projects-intro .eyebrow {
-			font-size: 0.8rem;
-			text-transform: uppercase;
-			letter-spacing: 0.3rem;
-			opacity: 0.6;
-			margin: 0 0 0.75rem 0;
-		}
-
 		.projects-intro h2 {
-			margin-bottom: 1rem;
+			font-size: 1.15rem;
+			letter-spacing: 0.35rem;
+			opacity: 0.9;
+			margin-bottom: 0.75rem;
 		}
 
 		.projects-intro p {
@@ -119,6 +114,16 @@
 			opacity: 0.85;
 		}
 
+		.projects-list li.all-link {
+			margin-top: 2rem;
+			border-bottom: 0;
+		}
+
+		.projects-list li.all-link .name {
+			font-weight: 400;
+			opacity: 0.75;
+		}
+
 		@media screen and (max-width: 480px) {
 			.projects {
 				padding: 2.5rem 1.25rem;
@@ -134,8 +139,7 @@
 		<a class="projects-back" href="index.html">&larr; Home</a>
 
 		<div class="projects-intro">
-			<p class="eyebrow">Projects</p>
-			<h2 class="major">Selected repositories</h2>
+			<h2>Projects</h2>
 			<p>A small selection of personal projects.</p>
 		</div>
 
@@ -156,7 +160,7 @@
 				<p class="desc">Custom-built digital photo frame — firmware and hardware.</p>
 			</li>
 
-			<li>
+			<li class="all-link">
 				<a href="https://github.com/EduardBenet" class="repo-link fa-github">
 					<span class="name">github.com/EduardBenet</span>
 					<span class="meta">All repositories &rarr;</span>
