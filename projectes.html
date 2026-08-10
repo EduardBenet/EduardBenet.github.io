@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Projectes | Eduard Benet</title>
+	<title>Projects | Eduard Benet</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
@@ -66,18 +66,50 @@
 
 		.projects-list li {
 			border-bottom: solid 1px rgba(255, 255, 255, 0.25);
+			padding: 1.15rem 0;
 		}
 
-		.projects-list a {
+		.projects-list .name {
+			font-weight: 600;
+		}
+
+		.projects-list .top {
+			display: flex;
+			align-items: baseline;
+			justify-content: space-between;
+			gap: 1rem;
+		}
+
+		.projects-list .desc {
+			margin: 0.4rem 0 0 0;
+			font-size: 0.85rem;
+			opacity: 0.75;
+		}
+
+		.projects-list .view,
+		.projects-list .meta {
+			font-size: 0.75rem;
+			text-transform: uppercase;
+			letter-spacing: 0.15rem;
+			opacity: 0.6;
+			white-space: nowrap;
+			border-bottom: 0;
+		}
+
+		.projects-list .view:hover,
+		.projects-list a:hover .meta {
+			opacity: 1;
+		}
+
+		.projects-list a.repo-link {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
 			gap: 1rem;
-			padding: 1.15rem 0;
 			border-bottom: 0;
 		}
 
-		.projects-list a:before {
+		.projects-list a.repo-link:before {
 			-moz-osx-font-smoothing: grayscale;
 			-webkit-font-smoothing: antialiased;
 			font-family: 'Font Awesome 5 Brands';
@@ -85,23 +117,6 @@
 			font-size: 1.2rem;
 			margin-right: 1rem;
 			opacity: 0.85;
-		}
-
-		.projects-list .name {
-			flex-grow: 1;
-			font-weight: 600;
-		}
-
-		.projects-list .meta {
-			font-size: 0.8rem;
-			text-transform: uppercase;
-			letter-spacing: 0.15rem;
-			opacity: 0.6;
-			white-space: nowrap;
-		}
-
-		.projects-list a:hover .meta {
-			opacity: 1;
 		}
 
 		@media screen and (max-width: 480px) {
@@ -116,19 +131,35 @@
 
 	<div class="projects">
 
-		<a class="projects-back" href="index.html">&larr; Inici</a>
+		<a class="projects-back" href="index.html">&larr; Home</a>
 
 		<div class="projects-intro">
-			<p class="eyebrow">Projectes</p>
-			<h2 class="major">Repositoris seleccionats</h2>
-			<p>Estic preparant una selecció dels meus projectes. Mentrestant, els pots consultar directament al perfil de GitHub.</p>
+			<p class="eyebrow">Projects</p>
+			<h2 class="major">Selected repositories</h2>
+			<p>A small selection of personal projects.</p>
 		</div>
 
 		<ul class="projects-list">
 			<li>
-				<a href="https://github.com/EduardBenet" class="fa-github">
+				<div class="top">
+					<span class="name">Sodium Index</span>
+					<a class="view" href="https://mango-river-0d57d6203.6.azurestaticapps.net/">Link &rarr;</a>
+				</div>
+				<p class="desc">A classifier for cheap instant noodle packs, ranked by sodium content.</p>
+			</li>
+
+			<li>
+				<div class="top">
+					<span class="name">Digital Frame</span>
+					<a class="view" href="https://github.com/EduardBenet/DigitalFrame">Link &rarr;</a>
+				</div>
+				<p class="desc">Custom-built digital photo frame — firmware and hardware.</p>
+			</li>
+
+			<li>
+				<a href="https://github.com/EduardBenet" class="repo-link fa-github">
 					<span class="name">github.com/EduardBenet</span>
-					<span class="meta">Tots els repositoris &rarr;</span>
+					<span class="meta">All repositories &rarr;</span>
 				</a>
 			</li>
 		</ul>
