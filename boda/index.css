@@ -82,19 +82,19 @@ body {
 
 .title {
     text-align: center;
-    font-size: 2.875rem;
+    font-size: clamp(1.75rem, 9vw, 2.875rem);
     font-family: Mulish, serif;
     line-height: 1.4;
     letter-spacing: 0.05em;
 }
 
 .title .ampersand {
-    font-size: 1.5rem;
+    font-size: 0.52em;
 }
 
 .explanation {
     text-align: center;
-    font-size: clamp(1.375rem, 1.2vw, 0.9rem);
+    font-size: clamp(1rem, 4vw, 1.375rem);
     line-height: 1.5;
     max-width: 85%;
     font-style: italic;
@@ -143,11 +143,21 @@ body {
     display: block;
 }
 
-/* ── SMALL SCREENS: stack, no vertical scroll ── */
+/* ── SMALL SCREENS: stack, allow vertical scroll ── */
 @media (max-width: 768px) {
+    html, body {
+        height: auto;
+        overflow: visible;
+    }
+
     .rectangle {
         grid-template-columns: 1fr;
-        grid-template-rows: auto 1fr;
+        grid-template-rows: auto auto;
+        min-height: 0;
+    }
+
+    .right-panel {
+        min-height: 45vh;
     }
 
     .left-panel {
