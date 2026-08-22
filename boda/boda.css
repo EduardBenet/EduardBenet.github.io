@@ -238,7 +238,7 @@ main {
 .section-2col {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 100vh;
+    height: calc(100vh - 56px);
     scroll-snap-align: start;
     scroll-margin-top: 56px;
     overflow: hidden;
@@ -273,7 +273,7 @@ main {
 /* ── SECTIONS 5–6: full width ── */
 .section-full {
     padding: 3.5rem 8vw;
-    height: 100vh;
+    height: calc(100vh - 56px);
     scroll-snap-align: start;
     scroll-margin-top: 56px;
     overflow: hidden;
@@ -321,8 +321,10 @@ main {
     max-width: 55ch;
 }
 
-/* Section 0: offset content below fixed navbar */
+/* Section 0: offset content below fixed navbar; it sits at scrollTop 0 rather
+   than being reached via scroll-margin-top, so it keeps the full viewport height */
 #section-0 {
+    height: 100vh;
     padding-top: 56px;
 }
 
