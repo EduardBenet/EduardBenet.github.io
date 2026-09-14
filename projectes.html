@@ -1,178 +1,195 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
+  <head>
+    <title>Projects | Eduard Benet</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+      <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+    <style>
+      .projects {
+        position: relative;
+        z-index: 3;
+        box-sizing: border-box;
+        min-height: 100vh;
+        max-width: 34rem;
+        margin: 0 auto;
+        padding: 3.5rem 2rem;
+        display: flex;
+        flex-direction: column;
+      }
 
-<head>
-	<title>Projects | Eduard Benet</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<noscript>
-		<link rel="stylesheet" href="assets/css/noscript.css" />
-	</noscript>
-	<style>
-		.projects {
-			position: relative;
-			z-index: 3;
-			box-sizing: border-box;
-			min-height: 100vh;
-			max-width: 34rem;
-			margin: 0 auto;
-			padding: 3.5rem 2rem;
-			display: flex;
-			flex-direction: column;
-		}
+      .projects-back {
+        align-self: flex-start;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        border-bottom: 0;
+        opacity: 0.6;
+      }
 
-		.projects-back {
-			align-self: flex-start;
-			font-size: 0.8rem;
-			text-transform: uppercase;
-			letter-spacing: 0.2rem;
-			border-bottom: 0;
-			opacity: 0.6;
-		}
+      .projects-back:hover {
+        opacity: 1;
+      }
 
-		.projects-back:hover {
-			opacity: 1;
-		}
+      .projects-intro {
+        margin-top: auto;
+        padding-top: 4rem;
+      }
 
-		.projects-intro {
-			margin-top: auto;
-			padding-top: 4rem;
-		}
+      .projects-intro h2 {
+        font-size: 1.15rem;
+        letter-spacing: 0.35rem;
+        opacity: 0.9;
+        margin-bottom: 0.75rem;
+      }
 
-		.projects-intro h2 {
-			font-size: 1.15rem;
-			letter-spacing: 0.35rem;
-			opacity: 0.9;
-			margin-bottom: 0.75rem;
-		}
+      .projects-intro p {
+        max-width: 30rem;
+        opacity: 0.85;
+      }
 
-		.projects-intro p {
-			max-width: 30rem;
-			opacity: 0.85;
-		}
+      .projects-list {
+        list-style: none;
+        padding: 0;
+        margin: 1rem 0 auto 0;
+        border-top: solid 1px rgba(255, 255, 255, 0.25);
+      }
 
-		.projects-list {
-			list-style: none;
-			padding: 0;
-			margin: 1rem 0 auto 0;
-			border-top: solid 1px rgba(255, 255, 255, 0.25);
-		}
+      .projects-list li {
+        border-bottom: solid 1px rgba(255, 255, 255, 0.25);
+        padding: 1.15rem 0;
+      }
 
-		.projects-list li {
-			border-bottom: solid 1px rgba(255, 255, 255, 0.25);
-			padding: 1.15rem 0;
-		}
+      .projects-list .name {
+        font-weight: 600;
+      }
 
-		.projects-list .name {
-			font-weight: 600;
-		}
+      .projects-list .top {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 1rem;
+      }
 
-		.projects-list .top {
-			display: flex;
-			align-items: baseline;
-			justify-content: space-between;
-			gap: 1rem;
-		}
+      .projects-list .desc {
+        margin: 0.4rem 0 0 0;
+        font-size: 0.85rem;
+        opacity: 0.75;
+      }
 
-		.projects-list .desc {
-			margin: 0.4rem 0 0 0;
-			font-size: 0.85rem;
-			opacity: 0.75;
-		}
+      .projects-list .view,
+      .projects-list .meta {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15rem;
+        opacity: 0.6;
+        white-space: nowrap;
+        border-bottom: 0;
+      }
 
-		.projects-list .view,
-		.projects-list .meta {
-			font-size: 0.75rem;
-			text-transform: uppercase;
-			letter-spacing: 0.15rem;
-			opacity: 0.6;
-			white-space: nowrap;
-			border-bottom: 0;
-		}
+      .projects-list .view:hover,
+      .projects-list a:hover .meta {
+        opacity: 1;
+      }
 
-		.projects-list .view:hover,
-		.projects-list a:hover .meta {
-			opacity: 1;
-		}
+      .projects-list a.repo-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        border-bottom: 0;
+      }
 
-		.projects-list a.repo-link {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			gap: 1rem;
-			border-bottom: 0;
-		}
+      .projects-list a.repo-link:before {
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-family: "Font Awesome 5 Brands";
+        font-weight: 400;
+        font-size: 1.2rem;
+        margin-right: 1rem;
+        opacity: 0.85;
+      }
 
-		.projects-list a.repo-link:before {
-			-moz-osx-font-smoothing: grayscale;
-			-webkit-font-smoothing: antialiased;
-			font-family: 'Font Awesome 5 Brands';
-			font-weight: 400;
-			font-size: 1.2rem;
-			margin-right: 1rem;
-			opacity: 0.85;
-		}
+      .projects-list li.all-link {
+        margin-top: 2rem;
+        border-bottom: 0;
+      }
 
-		.projects-list li.all-link {
-			margin-top: 2rem;
-			border-bottom: 0;
-		}
+      .projects-list li.all-link .name {
+        font-weight: 400;
+        opacity: 0.75;
+      }
 
-		.projects-list li.all-link .name {
-			font-weight: 400;
-			opacity: 0.75;
-		}
+      @media screen and (max-width: 480px) {
+        .projects {
+          padding: 2.5rem 1.25rem;
+        }
+      }
+    </style>
+  </head>
 
-		@media screen and (max-width: 480px) {
-			.projects {
-				padding: 2.5rem 1.25rem;
-			}
-		}
-	</style>
-</head>
+  <body>
+    <div class="projects">
+      <a class="projects-back" href="index.html">&larr; Home</a>
 
-<body>
+      <div class="projects-intro">
+        <h2>Projects</h2>
+        <p>A small selection of personal projects.</p>
+      </div>
 
-	<div class="projects">
+      <ul class="projects-list">
+        <li>
+          <div class="top">
+            <span class="name">Sodium Index</span>
+            <a
+              class="view"
+              href="https://mango-river-0d57d6203.6.azurestaticapps.net/"
+              >Link &rarr;</a
+            >
+          </div>
+          <p class="desc">
+            A classifier for cheap instant noodle packs, ranked by sodium
+            content.
+          </p>
+        </li>
 
-		<a class="projects-back" href="index.html">&larr; Home</a>
+        <li>
+          <div class="top">
+            <span class="name">Digital Frame</span>
+            <a class="view" href="https://github.com/EduardBenet/DigitalFrame"
+              >Link &rarr;</a
+            >
+          </div>
+          <p class="desc">
+            Custom-built digital photo frame — firmware and hardware.
+          </p>
+        </li>
 
-		<div class="projects-intro">
-			<h2>Projects</h2>
-			<p>A small selection of personal projects.</p>
-		</div>
+        <li>
+          <div class="top">
+            <span class="name">Thermoplan</span>
+            <a class="view" href="https://github.com/EduardBenet/thermoplan"
+              >Link &rarr;</a
+            >
+          </div>
+        </li>
 
-		<ul class="projects-list">
-			<li>
-				<div class="top">
-					<span class="name">Sodium Index</span>
-					<a class="view" href="https://mango-river-0d57d6203.6.azurestaticapps.net/">Link &rarr;</a>
-				</div>
-				<p class="desc">A classifier for cheap instant noodle packs, ranked by sodium content.</p>
-			</li>
+        <li class="all-link">
+          <a href="https://github.com/EduardBenet" class="repo-link fa-github">
+            <span class="name">github.com/EduardBenet</span>
+            <span class="meta">All repositories &rarr;</span>
+          </a>
+        </li>
+      </ul>
+    </div>
 
-			<li>
-				<div class="top">
-					<span class="name">Digital Frame</span>
-					<a class="view" href="https://github.com/EduardBenet/DigitalFrame">Link &rarr;</a>
-				</div>
-				<p class="desc">Custom-built digital photo frame — firmware and hardware.</p>
-			</li>
-
-			<li class="all-link">
-				<a href="https://github.com/EduardBenet" class="repo-link fa-github">
-					<span class="name">github.com/EduardBenet</span>
-					<span class="meta">All repositories &rarr;</span>
-				</a>
-			</li>
-		</ul>
-
-	</div>
-
-	<!-- BG -->
-	<div id="bg"></div>
-
-</body>
-
+    <!-- BG -->
+    <div id="bg"></div>
+  </body>
 </html>
